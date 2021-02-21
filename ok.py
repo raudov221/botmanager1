@@ -147,7 +147,7 @@ async def wrapper(ans: Message, da):
 	reg( ans )
 	data = json.load( open( "data.json", "r" ) )
 	if data["name"][str(ans.from_id)] == "Пользователь":
-		penis = await bot.api.users.get(user_ids=ans.reply_message.from_id, fields='is_closed')
+		penis = await bot.api.users.get(user_ids=ans.from_id, fields='is_closed')
 		data["name"][str(ans.from_id)] = penis[0].first_name
 	else:
 		pass
