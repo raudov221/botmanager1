@@ -147,7 +147,7 @@ async def wrapper(ans: Message, da):
 	reg( ans )
 	data = json.load( open( "data.json", "r" ) )
 	if data["pred"][str(ans.from_id)] == 3:
-	    	await ans("Больше 3 предупреждений")
+		await ans("Больше 3 предупреждений")
 		data["pred"][str(ans.from_id)] = 0
 		await bot.api.messages.remove_chat_user(user_id = ans.from_id, chat_id = ans.chat_id)
 	else:
