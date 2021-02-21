@@ -151,14 +151,12 @@ async def wrapper(ans: Message, da):
 		data["name"][str(ans.from_id)] = penis[0].first_name
 	else:
 		pass
-		
-@bot.on.message_handler(text='<da>')
-async def wrapper(ans: Message, da):
-	reg( ans )
 	if data["pred"][str(ans.from_id)] == 3:
 	    	await ans("Больше 3 предупреждений")
 		data["pred"][str(ans.from_id)] = 0
 		await bot.api.messages.remove_chat_user(user_id = ans.from_id, chat_id = ans.chat_id)
+	else:
+		pass
 			  
 bot.run_polling()
              
