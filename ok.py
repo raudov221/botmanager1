@@ -152,6 +152,16 @@ async def wrapper(ans: Message, da):
 		await bot.api.messages.remove_chat_user(user_id = ans.from_id, chat_id = ans.chat_id)
 	else:
 		pass
+
+@bot.on.message_handler(text='поцеловать')
+async def wrapper(ans: Message, da):
+	reg( ans )
+	await ans(f"[id{ans.from_id}|{data['name'][str(ans.from_id)]}], поцеловал [id{ans.reply_message.from_id}|{data['name'][str(ans.from_id)]}]")
+		  
+@bot.on.message_handler(text='Поцеловать')
+async def wrapper(ans: Message, da):
+	reg( ans )
+	await ans(f"[id{ans.from_id}|{data['name'][str(ans.from_id)]}], поцеловал [id{ans.reply_message.from_id}|{data['name'][str(ans.from_id)]}]")
 			  
 bot.run_polling()
              
