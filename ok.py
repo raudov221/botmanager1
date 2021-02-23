@@ -156,11 +156,13 @@ async def wrapper(ans: Message, da):
 @bot.on.message_handler(text='поцеловать')
 async def wrapper(ans: Message, da):
 	reg( ans )
+	data = json.load( open( "data.json", "r" ) )
 	await ans(f"[id{ans.from_id}|{data['name'][str(ans.from_id)]}], поцеловал [id{ans.reply_message.from_id}|{data['name'][str(ans.from_id)]}]")
 		  
 @bot.on.message_handler(text='Поцеловать')
 async def wrapper(ans: Message, da):
 	reg( ans )
+	data = json.load( open( "data.json", "r" ) )
 	await ans(f"[id{ans.from_id}|{data['name'][str(ans.from_id)]}], поцеловал [id{ans.reply_message.from_id}|{data['name'][str(ans.from_id)]}]")
 			  
 bot.run_polling()
