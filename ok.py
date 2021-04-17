@@ -77,13 +77,13 @@ async def wrapper(ans: Message, name):
 	reg( ans )
 	data = json.load( open( "data.json", "r" ) )
 	data["name"][str(ans.from_id)] = name
-	await ans(f"ваш ник теперь - {name}")
+	await ans(f"🔮 Ваш ник теперь - {name}")
 	json.dump( data, open( "data.json", "w" ) )
 
 @bot.on.message_handler(text='админ права')
 async def wrapper(ans: Message):
 	data = json.load( open( "data.json", "r" ) )
-	admincheck = await messages.getConversationMembers(peer_id=ans.from_id)
+	admincheck = await message.getConversationMembers(peer_id=ans.from_id)
 	if admincheck["is_admin"] == 1:
 		data["prava"][str(ans.from_id)] = 4
 		await ans("Вы получили админ права!") 
