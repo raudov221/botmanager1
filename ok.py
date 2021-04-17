@@ -4,8 +4,8 @@ import sys
 import json
 import re
 
-bot=Bot('32e0395facce5c1284e84ba0a17ff33d07b46d192516868fbc81d9f9962d10e36cdbb3a26c0cab931b08f')
-group_id = 202725378
+bot=Bot('fec3aaf303910eb963600399516f0625f73b9c2d4c1826b61c732bf90abf5efb5ad4792d620e264e36b84')
+group_id = 200759417
 photo_uploader = PhotoUploader(bot.api, generate_attachment_strings=True)  # Создание объекта загрузчика
 
 def reg( ans ):
