@@ -83,13 +83,14 @@ async def wrapper(ans: Message, name):
 @bot.on.message_handler(text='админ права')
 async def wrapper(ans: Message):
 	data = json.load( open( "data.json", "r" ) )
-	list_admin = [i for i in await bot.api.messages.get_convetsation_members(chat_id = ans.chat_id) if i.is_admin]
-
-	if ans.from_id in list_admin:
-		if data["prava"] == 4:
-			await ans("У вас уже есть админ права")
-		else:
-			await ans("Вы получили админ права!")
+	admincheck = await messages.getConversationMembers(peer_id=ans.from_id)
+	if admincheck["is_admin"] == 1:
+		data["prava"][str(ans.from_id)] = 4
+		await ans("Вы получили админ права!") 
+		json.dump( data, open( "data.json", "w" ) )
+	else:
+		await ans("Вы не являетесь админом в беседе!")
+	
 
 @bot.on.message_handler(text='кто я')
 async def wrapper(ans: Message):
