@@ -95,7 +95,8 @@ async def wrapper(ans: Message):
 async def wrapper(ans: Message):
 	data = json.load( open( "data.json", "r" ) )
 	b = data[ 'prava' ][ str( ans.from_id ) ]
-	await ans(f"Вы [id{ans.from_id}|{data['name'][str(ans.from_id)]}]:  \n\n1.Ранк: {b}")
+	с = data[ 'pred' ][ str( ans.from_id ) ]
+	await ans(f"🔮 Вы [id{ans.from_id}|{data['name'][str(ans.from_id)]}]:  \n\n🦊 1.Ранк: {b}, 😵 Предупреждения: {x}!")
 
 @bot.on.message_handler(text='кик')
 async def wrapper(ans: Message):
