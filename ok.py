@@ -9,7 +9,7 @@ user = User("d8ecd8cb345c80a0a2dc573293763baee965fdba2b97e7e3dd107b8d5f786016e3b
 
 @user.on.message_handler(text=".брак пошалить", lower = True)
 async def wrapper(ans: Message):
-	await ans("@grizzlybot ✅ Принять")
+	await ans(".брак принять")
 
 
 user.run_polling()
